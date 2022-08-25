@@ -5,6 +5,7 @@
 class Square {
 public:
 	Square() = default;
+	Square(int x, int y);
 
 	int getRank();
 	int getValue() { return value_; };
