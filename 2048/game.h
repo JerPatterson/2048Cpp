@@ -6,6 +6,12 @@ class Square {
 public:
 	Square() = default;
 
+	//int getRank();
+	int getValue() { return value_; };
+
+	//void merge(Square);
+	//bool isPossibleToMerge(Square);
+
 private:
 	int value_ = 0;
 	int horizontalPosition_ = -1;
