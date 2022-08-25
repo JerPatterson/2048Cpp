@@ -10,12 +10,15 @@ public:
 	int getValue() { return value_; };
 
 	//void merge(Square);
-	//bool isPossibleToMerge(Square);
+	bool operator!=(Square);
+	bool isPossibleToMerge(Square);
 
 private:
 	int value_ = 0;
 	int horizontalPosition_ = -1;
 	int verticalPosition_ = -1;
+
+	bool isOnTheSameLine(Square);
 };
 
 
