@@ -10,9 +10,9 @@ const int SIDE_LENGTH = 4;
 int main() {
 	//Grid gameGrid = Grid::getInstance();
 
-	Square firstSquare = Square(1, 3);
-	Square sencondSquare = Square(1, 2);
-	Square thirdSquare = Square(4, 3);
+	Square firstSquare = Square(1, 3, 4);
+	Square sencondSquare = Square(1, 2, 4);
+	Square thirdSquare = Square(4, 3, 0);
 
 	cout << firstSquare.getRank() << ' ' 
 		<< sencondSquare.getRank() << ' ' 
@@ -30,9 +30,10 @@ Grid::Grid() {
 }
 
 
-Square::Square(int x, int y) :
+Square::Square(int x, int y, int value) :
 	horizontalPosition_(x),
-	verticalPosition_(y)
+	verticalPosition_(y),
+	value_(value)
 {
 }
 
@@ -43,10 +44,12 @@ int Square::getRank() {
 
 bool Square::isPossibleToMerge(Square other) {
 	if (*this != other) {
-		if (isOnTheSameLine(other)) {
+		if (getValue() == 0) {
 			return true;
 		}
-		
+		else if (isOnTheSameLine(other)) {
+			return value_ = other.value_;
+		}
 	}
 
 	return false;
