@@ -6,7 +6,7 @@ class Square {
 public:
 	Square() = default;
 
-	//int getRank();
+	int getRank();
 	int getValue() { return value_; };
 
 	//void merge(Square);
