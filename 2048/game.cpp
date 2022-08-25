@@ -3,7 +3,7 @@
 using namespace std;
 
 
-const int sideLength = 4;
+const int SIDE_LENGTH = 4;
 
 
 int main() {
@@ -20,5 +20,5 @@ Grid::Grid() {
 
 
 int Square::getRank() {
-	return sideLength * (verticalPosition_ - 1) + horizontalPosition_;
+	return SIDE_LENGTH * (verticalPosition_ - 1) + horizontalPosition_;
 }
