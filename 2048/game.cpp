@@ -48,7 +48,7 @@ bool Square::isPossibleToMerge(Square other) {
 			return true;
 		}
 		else if (isOnTheSameLine(other)) {
-			return value_ = other.value_;
+			return value_ == other.value_;
 		}
 	}
 
