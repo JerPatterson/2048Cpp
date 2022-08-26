@@ -1,11 +1,14 @@
 #include <iostream>
 #include <algorithm>
+#include <random>
 #include "game.h"
 
 using namespace std;
 
 
 const int SIDE_LENGTH = 4;
+const int MOST_COMMON_SPAWN = 2;
+const int OTHER_SPAWN = 4;
 
 
 int main() {
@@ -79,8 +82,31 @@ void Square::merge(Square other) {
 }
 
 
+void Square::setNewValue() {
+	if (isGettingNewValue()) {
+		if (rand() % 3 == 0) {
+			value_ = OTHER_SPAWN;
+		}
+		else {
+			value_ = MOST_COMMON_SPAWN;
+		}
+	}
+}
+
+bool Square::isGettingNewValue() const {
+	return value_ == 0 && rand() > rand();
+}
+
+
 
 void Grid::sortValues() {
 	sort(gridContent_.begin(), gridContent_.end(), 
 		[](const Square& first, const Square& second) { return first.getRank() < second.getRank(); });
+}
+
+
+void Grid::generateStartValues() {
+	for (Square& square : gridContent_) {
+		square.setNewValue();
+	}
 }

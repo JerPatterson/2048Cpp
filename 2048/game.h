@@ -10,6 +10,7 @@ public:
 	int getRank() const;
 	int getValue() { return value_; };
 
+	void setNewValue();
 	void merge(Square);
 	bool operator!=(Square);
 	bool isPossibleToMerge(Square);
@@ -20,6 +21,7 @@ private:
 	int verticalPosition_ = -1;
 
 	bool isOnTheSameLine(Square);
+	bool isGettingNewValue() const;
 };
 
 
@@ -32,11 +34,11 @@ public:
 
 	//void spawnNewValues();
 	//void makeMove(char keyPressed);
-	//void generateStartValues();
 
 private:
 	Grid();
 	void sortValues();
+	void generateStartValues();
 
 	std::vector<Square> gridContent_;
 };
