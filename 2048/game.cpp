@@ -32,7 +32,8 @@ Square::Square() :
 {
 	static int nbOfSquaresGenerated = 0;
 	++nbOfSquaresGenerated;
-	cout << nbOfSquaresGenerated;
+
+	setPosition(nbOfSquaresGenerated);
 }
 
 Square::Square(int x, int y, int value) :
@@ -45,6 +46,15 @@ Square::Square(int x, int y, int value) :
 
 int Square::getRank() const {
 	return SIDE_LENGTH * (verticalPosition_ - 1) + horizontalPosition_;
+}
+
+void Square::setPosition(int rank) {
+	if (rank % SIDE_LENGTH == 0) 
+		verticalPosition_ = rank / SIDE_LENGTH;
+	else
+		verticalPosition_ = (rank / SIDE_LENGTH) + 1;
+	
+	horizontalPosition_ = rank - SIDE_LENGTH * (verticalPosition_ - 1);
 }
 
 

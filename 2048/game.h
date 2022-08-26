@@ -21,6 +21,7 @@ private:
 	int horizontalPosition_ = -1;
 	int verticalPosition_ = -1;
 
+	void setPosition(int);
 	bool isOnTheSameLine(Square);
 	bool isGettingNewValue() const;
 };
