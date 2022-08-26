@@ -10,6 +10,7 @@ public:
 	int getRank() const;
 	int getValue() { return value_; };
 
+	void print() const;
 	void setNewValue();
 	void merge(Square);
 	bool operator!=(Square);
@@ -32,6 +33,7 @@ public:
 		return theInstance;
 	};
 
+	void print() const;
 	//void spawnNewValues();
 	//void makeMove(char keyPressed);
 

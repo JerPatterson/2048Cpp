@@ -14,11 +14,16 @@ const int OTHER_SPAWN = 4;
 int main() {
 	Grid gameGrid = Grid::getInstance();
 
+	gameGrid.print();
+
 	return 0;
 }
 
 Grid::Grid() {
 	gridContent_.resize(16);
+
+	srand(time(NULL));
+	generateStartValues();
 }
 
 
@@ -98,6 +103,11 @@ bool Square::isGettingNewValue() const {
 }
 
 
+void Square::print() const {
+	cout << value_;
+}
+
+
 
 void Grid::sortValues() {
 	sort(gridContent_.begin(), gridContent_.end(), 
@@ -108,5 +118,19 @@ void Grid::sortValues() {
 void Grid::generateStartValues() {
 	for (Square& square : gridContent_) {
 		square.setNewValue();
+	}
+}
+
+
+void Grid::print() const {
+	int i = 0;
+	for (const Square& square : gridContent_) {
+		if (i++ >= SIDE_LENGTH) {
+			i = 1;
+			cout << '\n';
+		}
+
+		square.print();
+		cout << " ";
 	}
 }
