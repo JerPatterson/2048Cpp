@@ -8,19 +8,7 @@ const int SIDE_LENGTH = 4;
 
 
 int main() {
-	//Grid gameGrid = Grid::getInstance();
-
-	Square firstSquare = Square(1, 3, 4);
-	Square sencondSquare = Square(1, 2, 4);
-	Square thirdSquare = Square(4, 3, 0);
-
-	cout << firstSquare.getRank() << ' ' 
-		<< sencondSquare.getRank() << ' ' 
-		<< thirdSquare.getRank() << endl;
-
-	cout << firstSquare.isPossibleToMerge(sencondSquare) << ' '
-		<< firstSquare.isPossibleToMerge(thirdSquare);
-
+	Grid gameGrid = Grid::getInstance();
 
 	return 0;
 }
