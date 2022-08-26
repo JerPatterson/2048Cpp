@@ -7,7 +7,7 @@ public:
 	Square() = default;
 	Square(int, int, int = 0);
 
-	int getRank();
+	int getRank() const;
 	int getValue() { return value_; };
 
 	void merge(Square);
@@ -30,8 +30,13 @@ public:
 		return theInstance;
 	};
 
+	//void spawnNewValues();
+	//void makeMove(char keyPressed);
+	//void generateStartValues();
+
 private:
 	Grid();
+	//void sortValues();
 
 	std::vector<Square> gridContent_;
 };
