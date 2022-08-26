@@ -36,7 +36,7 @@ public:
 
 private:
 	Grid();
-	//void sortValues();
+	void sortValues();
 
 	std::vector<Square> gridContent_;
 };

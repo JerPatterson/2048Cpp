@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include "game.h"
 
 using namespace std;
@@ -25,7 +26,8 @@ Square::Square(int x, int y, int value) :
 {
 }
 
-int Square::getRank() {
+
+int Square::getRank() const {
 	return SIDE_LENGTH * (verticalPosition_ - 1) + horizontalPosition_;
 }
 
@@ -74,4 +76,11 @@ void Square::merge(Square other) {
 		value_ += other.value_;
 		other.value_ = 0;
 	}
+}
+
+
+
+void Grid::sortValues() {
+	sort(gridContent_.begin(), gridContent_.end(), 
+		[](const Square& first, const Square& second) { return first.getRank() < second.getRank(); });
 }
