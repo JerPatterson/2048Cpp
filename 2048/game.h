@@ -10,7 +10,7 @@ public:
 	int getRank();
 	int getValue() { return value_; };
 
-	//void merge(Square);
+	void merge(Square);
 	bool operator!=(Square);
 	bool isPossibleToMerge(Square);
 

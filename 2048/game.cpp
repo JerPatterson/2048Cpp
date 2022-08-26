@@ -79,3 +79,11 @@ bool Square::isOnTheSameLine(Square other) {
 
 	return false;
 }
+
+
+void Square::merge(Square other) {
+	if (isPossibleToMerge(other)) {
+		value_ += other.value_;
+		other.value_ = 0;
+	}
+}
