@@ -4,7 +4,7 @@
 
 class Square {
 public:
-	Square() = default;
+	Square();
 	Square(int, int, int = 0);
 
 	int getRank() const;

@@ -22,10 +22,18 @@ int main() {
 Grid::Grid() {
 	gridContent_.resize(16);
 
-	srand(time(NULL));
+	srand(static_cast<int>(time(NULL)));
 	generateStartValues();
 }
 
+
+Square::Square() :
+	value_(0)
+{
+	static int nbOfSquaresGenerated = 0;
+	++nbOfSquaresGenerated;
+	cout << nbOfSquaresGenerated;
+}
 
 Square::Square(int x, int y, int value) :
 	horizontalPosition_(x),
