@@ -10,6 +10,11 @@ const int SIDE_LENGTH = 4;
 const int MOST_COMMON_SPAWN = 2;
 const int OTHER_SPAWN = 4;
 
+const char UP_KEY = 'w';
+const char DOWN_KEY = 's';
+const char RIGHT_KEY = 'a';
+const char LEFT_KEY = 'd';
+
 
 int main() {
 	Grid gameGrid = Grid::getInstance();
@@ -150,5 +155,24 @@ void Grid::print() const {
 
 		square.print();
 		cout << " ";
+	}
+}
+
+
+void Grid::makeMove(char keyPressed) {
+	if (keyPressed == UP_KEY) {
+		
+	}
+
+	else if (keyPressed == DOWN_KEY) {
+		
+	}
+
+	else if (keyPressed == RIGHT_KEY) {
+		
+	}
+
+	else if (keyPressed == LEFT_KEY) {
+
 	}
 }

@@ -36,10 +36,11 @@ public:
 
 	void print() const;
 	//void spawnNewValues();
-	//void makeMove(char keyPressed);
+	void makeMove(char keyPressed);
 
 private:
 	Grid();
+
 	void sortValues();
 	void generateStartValues();
 
