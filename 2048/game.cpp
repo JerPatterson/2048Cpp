@@ -178,17 +178,39 @@ void Grid::makeMove(char keyPressed) {
 }
 
 void Grid::upShift() {
+	// TODO : if (unsorted) { ...
 	sortValues();
+
+	for (int k = SIDE_LENGTH; k > 1; --k) {
+		for (int i = 0; i < SIDE_LENGTH; ++i) {
+			for (int j = k - 1; j > 0; --j) {
+				Square& top = gridContent_[i + SIDE_LENGTH * (SIDE_LENGTH - k)];
+				Square& under = gridContent_[i + SIDE_LENGTH * j];
+
+				if (top.getValue() == 0) {
+					top.merge(under);
+				}
+				else if (top.isPossibleToMerge(under)) {
+					top.merge(under);
+					break;
+				}
+			}
+
+		}
+	}
 }
 
 void Grid::downShift() {
+	// TODO : if (unsorted) { ...
 	sortValues();
 }
 
 void Grid::rightShift() {
+	// TODO : if (unsorted) { ...
 	sortValues();
 }
 
 void Grid::leftShift() {
+	// TODO : if (unsorted) { ...
 	sortValues();
 }
