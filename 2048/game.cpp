@@ -161,18 +161,34 @@ void Grid::print() const {
 
 void Grid::makeMove(char keyPressed) {
 	if (keyPressed == UP_KEY) {
-		
+		upShift();
 	}
 
 	else if (keyPressed == DOWN_KEY) {
-		
+		downShift();
 	}
 
 	else if (keyPressed == RIGHT_KEY) {
-		
+		rightShift();
 	}
 
 	else if (keyPressed == LEFT_KEY) {
-
+		leftShift();
 	}
+}
+
+void Grid::upShift() {
+	sortValues();
+}
+
+void Grid::downShift() {
+	sortValues();
+}
+
+void Grid::rightShift() {
+	sortValues();
+}
+
+void Grid::leftShift() {
+	sortValues();
 }

@@ -44,5 +44,10 @@ private:
 	void sortValues();
 	void generateStartValues();
 
+	void upShift();
+	void downShift();
+	void rightShift();
+	void leftShift();
+
 	std::vector<Square> gridContent_;
 };
