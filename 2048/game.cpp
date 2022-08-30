@@ -133,8 +133,10 @@ void Square::print() const {
 
 
 void Grid::sortValues() {
-	sort(gridContent_.begin(), gridContent_.end(), 
-		[](const Square& first, const Square& second) { return first.getRank() < second.getRank(); });
+	if (!isSorted()) {
+		sort(gridContent_.begin(), gridContent_.end(),
+			[](const Square& first, const Square& second) { return first.getRank() < second.getRank(); });
+	}
 }
 
 bool Grid::isSorted() const {
@@ -188,7 +190,6 @@ void Grid::makeMove(char keyPressed) {
 }
 
 void Grid::upShift() {
-	// TODO : if (unsorted) { ...
 	sortValues();
 
 	for (int k = SIDE_LENGTH; k > 1; --k) {
@@ -210,7 +211,6 @@ void Grid::upShift() {
 }
 
 void Grid::downShift() {
-	// TODO : if (unsorted) { ...
 	sortValues();
 
 	for (int k = SIDE_LENGTH; k > 1; --k) {
@@ -232,11 +232,9 @@ void Grid::downShift() {
 }
 
 void Grid::rightShift() {
-	// TODO : if (unsorted) { ...
 	sortValues();
 }
 
 void Grid::leftShift() {
-	// TODO : if (unsorted) { ...
 	sortValues();
 }

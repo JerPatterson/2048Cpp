@@ -35,7 +35,6 @@ public:
 	};
 
 	void print() const;
-	bool isSorted() const;
 	//void spawnNewValues();
 	void makeMove(char keyPressed);
 
@@ -43,6 +42,7 @@ private:
 	Grid();
 
 	void sortValues();
+	bool isSorted() const;
 	void generateStartValues();
 
 	void upShift();
