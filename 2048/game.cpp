@@ -137,6 +137,16 @@ void Grid::sortValues() {
 		[](const Square& first, const Square& second) { return first.getRank() < second.getRank(); });
 }
 
+bool Grid::isSorted() const {
+	for (int i = 0; i < SIDE_LENGTH * SIDE_LENGTH; ) {
+		if (gridContent_[i++].getRank() != i) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
 
 void Grid::generateStartValues() {
 	for (Square& square : gridContent_) {

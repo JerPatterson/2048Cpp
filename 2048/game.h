@@ -35,6 +35,7 @@ public:
 	};
 
 	void print() const;
+	bool isSorted() const;
 	//void spawnNewValues();
 	void makeMove(char keyPressed);
 
