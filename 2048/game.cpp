@@ -195,7 +195,6 @@ void Grid::upShift() {
 					break;
 				}
 			}
-
 		}
 	}
 }
@@ -203,6 +202,23 @@ void Grid::upShift() {
 void Grid::downShift() {
 	// TODO : if (unsorted) { ...
 	sortValues();
+
+	for (int k = SIDE_LENGTH; k > 1; --k) {
+		for (int i = 1; i < SIDE_LENGTH; ++i) {
+			for (int j = k - 1; j > 0; --j) {
+				Square& bottom = gridContent_[SIDE_LENGTH * k - i];
+				Square& above = gridContent_[SIDE_LENGTH * j - i];
+
+				if (bottom.getValue() == 0) {
+					bottom.merge(above);
+				}
+				else if (bottom.isPossibleToMerge(above)) {
+					bottom.merge(above);
+					break;
+				}
+			}
+		}
+	}
 }
 
 void Grid::rightShift() {
