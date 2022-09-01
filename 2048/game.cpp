@@ -12,8 +12,8 @@ const int OTHER_SPAWN = 4;
 
 const char UP_KEY = 'w';
 const char DOWN_KEY = 's';
-const char RIGHT_KEY = 'a';
-const char LEFT_KEY = 'd';
+const char RIGHT_KEY = 'd';
+const char LEFT_KEY = 'a';
 
 
 int main() {
