@@ -1,7 +1,7 @@
 #include "Qt2048.h"
 
 using _2048Game::SIDE_LENGTH;
-using std::vector, std::to_string;
+using std::vector, std::to_string, std::map, std::string;
 
 
 Qt2048::Qt2048() :
@@ -38,8 +38,21 @@ void Qt2048::changeContent(const vector<Square>& gridContent) {
 	int i = 0;
 
 	for (const Square& square : gridContent) {
+		setAppropriateColor(i, square.getValue());
 		squares_[i++]->setText(QString::number(square.getValue()));
 	}
+}
+
+void Qt2048::setAppropriateColor(int rank, int number) {
+	const map<int, string> NUMBER_AND_COLOR_ASSOCIATION{
+		{ 0, "#ECF0F1" },   { 2, "#FFFF66" },   { 4, "#FF9933" },
+		{ 8, "#80FF00" },   { 16, "#009900" },  { 32, "#009999" },
+		{ 64, "#0000CC" },  { 128, "#9933FF" }, { 256, "#FF66FF" }, 
+		{ 512, "#FF99CC" }, { 1024, "#CC0066" }, { 2048, "#990099" },
+	};
+
+	squares_[rank]->setStyleSheet(QString::fromStdString("background-color: "
+		+ NUMBER_AND_COLOR_ASSOCIATION.at(number)));
 }
 
 

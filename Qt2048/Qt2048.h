@@ -1,5 +1,7 @@
 #pragma once
 #include "2048.h"
+#include <map>
+#include <string>
 #include <vector>
 #include <QGridLayout>
 #include <QEvent>
@@ -14,6 +16,7 @@ class Qt2048 : public QMainWindow {
 public:
     Qt2048();
     ~Qt2048() = default;
+    void setAppropriateColor(int, int);
 
 public slots:
     void changeContent(const std::vector<Square>&);
