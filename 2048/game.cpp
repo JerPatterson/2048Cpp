@@ -7,6 +7,7 @@ using namespace std;
 
 
 const int SIDE_LENGTH = 4;
+const int DEFAULT_SPAWN_PERCENTAGE = 30;
 const int MOST_COMMON_SPAWN = 2;
 const int OTHER_SPAWN = 4;
 
@@ -119,8 +120,8 @@ void Square::merge(Square& other) {
 }
 
 
-void Square::setNewValue() {
-	if (isGettingNewValue()) {
+void Square::setNewValue(int percentageOfSpawn = DEFAULT_SPAWN_PERCENTAGE) {
+	if (isGettingNewValue(percentageOfSpawn)) {
 		if (rand() % 3 == 0) {
 			value_ = OTHER_SPAWN;
 		}
@@ -130,8 +131,8 @@ void Square::setNewValue() {
 	}
 }
 
-bool Square::isGettingNewValue() const {
-	return value_ == 0 && rand() > rand();
+bool Square::isGettingNewValue(int percentageOfSpawn) const {
+	return value_ == 0 && rand() < RAND_MAX * percentageOfSpawn / 100;
 }
 
 
@@ -296,7 +297,7 @@ void Grid::leftShift() {
 void Grid::spawnNewValues() {
 	for (Square& square : gridContent_) {
 		if (square.getValue() == 0) {
-			square.setNewValue();
+			square.setNewValue(DEFAULT_SPAWN_PERCENTAGE / 2);
 		}
 	}
 }

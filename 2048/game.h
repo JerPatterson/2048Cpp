@@ -11,7 +11,7 @@ public:
 	int getValue() { return value_; };
 
 	void print() const;
-	void setNewValue();
+	void setNewValue(int);
 	void merge(Square&);
 	bool operator!=(Square);
 	bool isPossibleToMerge(Square);
@@ -23,7 +23,7 @@ private:
 
 	void setPosition(int);
 	bool isOnTheSameLine(Square);
-	bool isGettingNewValue() const;
+	bool isGettingNewValue(int) const;
 };
 
 
