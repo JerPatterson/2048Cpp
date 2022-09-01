@@ -35,7 +35,7 @@ public:
 	};
 
 	void print() const;
-	//void spawnNewValues();
+	void spawnNewValues();
 	void makeMove(char keyPressed);
 
 private:

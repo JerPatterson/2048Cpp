@@ -266,7 +266,6 @@ void Grid::rightShift() {
 void Grid::leftShift() {
 	sortValues();
 
-
 	for (int k = 1; k <= SIDE_LENGTH; ++k) {
 		for (int i = SIDE_LENGTH; i > 1; --i) {
 			for (int j = i - 1; j >= 1; --j) {
@@ -281,6 +280,15 @@ void Grid::leftShift() {
 					break;
 				}
 			}
+		}
+	}
+}
+
+
+void Grid::spawnNewValues() {
+	for (Square& square : gridContent_) {
+		if (square.getValue() == 0) {
+			square.setNewValue();
 		}
 	}
 }
