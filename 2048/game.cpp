@@ -233,6 +233,23 @@ void Grid::downShift() {
 
 void Grid::rightShift() {
 	sortValues();
+
+	for (int k = 1; k < SIDE_LENGTH; ++k) {
+		for (int i = 1; i < SIDE_LENGTH; ++i) {
+			for (int j = i + 1; j < SIDE_LENGTH; ++j) {
+				Square& right = gridContent_[SIDE_LENGTH * k - i];
+				Square& left = gridContent_[SIDE_LENGTH * k - j];
+
+				if (right.getValue() == 0) {
+					right.merge(left);
+				}
+				else if (right.isPossibleToMerge(left)) {
+					right.merge(left);
+					break;
+				}
+			}
+		}
+	}
 }
 
 void Grid::leftShift() {
