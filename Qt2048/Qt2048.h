@@ -2,6 +2,8 @@
 #include "2048.h"
 #include <vector>
 #include <QGridLayout>
+#include <QEvent>
+#include <QKeyEvent>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 
@@ -22,4 +24,11 @@ public slots:
 private:
     QGridLayout* interfaceGrid_;
     std::vector<QAbstractButton*> squares_;
+};
+
+
+class KeyReceiver : public QObject {
+    Q_OBJECT
+protected:
+    bool eventFilter(QObject* obj, QEvent* event);
 };

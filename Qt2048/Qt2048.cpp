@@ -25,7 +25,10 @@ Qt2048::Qt2048() :
 	connect(this, SIGNAL(startGame()), Grid::getInstance(), 
 		SLOT(generateStartValues()), Qt::UniqueConnection);
 	connect(Grid::getInstance(), SIGNAL(contentHasChanged(const std::vector<Square>&)),
-		this, SLOT(changeContent(const std::vector<Square>&)), Qt::UniqueConnection);
+		this, SLOT(changeContent(const std::vector<Square>&)));
+
+	KeyReceiver* receiver = new KeyReceiver();
+	mainWidget->installEventFilter(receiver);
 
 	emit startGame();
 }
@@ -37,4 +40,31 @@ void Qt2048::changeContent(const vector<Square>& gridContent) {
 	for (const Square& square : gridContent) {
 		squares_[i++]->setText(QString::number(square.getValue()));
 	}
+}
+
+
+bool KeyReceiver::eventFilter(QObject* obj, QEvent* event) {
+	if (event->type() == QEvent::KeyPress) {
+		QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
+
+		if (keyEvent->key() == Qt::Key_W) {
+			Grid::getInstance()->makeMove('w');
+		}
+		else if (keyEvent->key() == Qt::Key_S) {
+			Grid::getInstance()->makeMove('s');
+		}
+		else if (keyEvent->key() == Qt::Key_D) {
+			Grid::getInstance()->makeMove('d');
+		}
+		else if (keyEvent->key() == Qt::Key_A) {
+			Grid::getInstance()->makeMove('a');
+		}
+
+		return true;
+	}
+	else {
+		return QObject::eventFilter(obj, event);
+	}
+
+	return false;
 }

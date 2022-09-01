@@ -49,8 +49,7 @@ void Grid::print() const {
 
 void Grid::makeMove(char keyPressed) {
 	if (keyPressed == UP_KEY) {
-		upShift();
-		emit 
+		upShift(); 
 	}
 
 	else if (keyPressed == DOWN_KEY) {
