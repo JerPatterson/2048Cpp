@@ -20,6 +20,13 @@ int main() {
 	Grid gameGrid = Grid::getInstance();
 
 	gameGrid.print();
+	gameGrid.makeMove('d');
+	gameGrid.print();
+	gameGrid.makeMove('d');
+	gameGrid.print();
+	gameGrid.makeMove('d');
+	gameGrid.print();
+
 
 	return 0;
 }
@@ -168,6 +175,8 @@ void Grid::print() const {
 		square.print();
 		cout << " ";
 	}
+
+	cout << "\n\n";
 }
 
 
