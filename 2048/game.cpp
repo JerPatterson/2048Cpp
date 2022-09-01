@@ -20,7 +20,9 @@ int main() {
 	Grid gameGrid = Grid::getInstance();
 
 	gameGrid.print();
-	gameGrid.makeMove('d');
+	gameGrid.makeMove('a');
+	gameGrid.print();
+	gameGrid.makeMove('a');
 	gameGrid.print();
 	gameGrid.makeMove('d');
 	gameGrid.print();
@@ -243,16 +245,16 @@ void Grid::downShift() {
 void Grid::rightShift() {
 	sortValues();
 
-	for (int k = 1; k < SIDE_LENGTH; ++k) {
+	for (int k = 1; k <= SIDE_LENGTH; ++k) {
 		for (int i = 1; i < SIDE_LENGTH; ++i) {
-			for (int j = i + 1; j < SIDE_LENGTH; ++j) {
+			for (int j = i + 1; j <= SIDE_LENGTH; ++j) {
 				Square& right = gridContent_[SIDE_LENGTH * k - i];
 				Square& left = gridContent_[SIDE_LENGTH * k - j];
 
 				if (right.getValue() == 0) {
 					right.merge(left);
 				}
-				else if (right.isPossibleToMerge(left)) {
+				else if (left.getValue() != 0) {
 					right.merge(left);
 					break;
 				}
@@ -265,16 +267,16 @@ void Grid::leftShift() {
 	sortValues();
 
 
-	for (int k = 1; k < SIDE_LENGTH; ++k) {
-		for (int i = SIDE_LENGTH; i > 0; --i) {
-			for (int j = i - 1; j > 0; --j) {
-				Square& right = gridContent_[SIDE_LENGTH * k - i];
-				Square& left = gridContent_[SIDE_LENGTH * k - j];
+	for (int k = 1; k <= SIDE_LENGTH; ++k) {
+		for (int i = SIDE_LENGTH; i > 1; --i) {
+			for (int j = i - 1; j >= 1; --j) {
+				Square& left = gridContent_[SIDE_LENGTH * k - i];
+				Square& right = gridContent_[SIDE_LENGTH * k - j];
 
 				if (left.getValue() == 0) {
 					left.merge(right);
 				}
-				else if (left.isPossibleToMerge(right)) {
+				else if (right.getValue() != 0) {
 					left.merge(right);
 					break;
 				}
