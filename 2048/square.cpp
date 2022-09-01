@@ -6,7 +6,7 @@ using namespace _2048Game;
 
 
 Grid::Grid() {
-	gridContent_.resize(16);
+	gridContent_.resize(SIDE_LENGTH * SIDE_LENGTH);
 
 	srand(static_cast<int>(time(NULL)));
 	generateStartValues();

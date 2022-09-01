@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
+    <keyword>Qt4VSv1.0</keyword>
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{12e2b6f4-f1a4-461d-a2b3-969a041fea46}</ProjectGuid>
@@ -146,6 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2048.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
