@@ -254,4 +254,22 @@ void Grid::rightShift() {
 
 void Grid::leftShift() {
 	sortValues();
+
+
+	for (int k = 1; k < SIDE_LENGTH; ++k) {
+		for (int i = SIDE_LENGTH; i > 0; --i) {
+			for (int j = i - 1; j > 0; --j) {
+				Square& right = gridContent_[SIDE_LENGTH * k - i];
+				Square& left = gridContent_[SIDE_LENGTH * k - j];
+
+				if (left.getValue() == 0) {
+					left.merge(right);
+				}
+				else if (left.isPossibleToMerge(right)) {
+					left.merge(right);
+					break;
+				}
+			}
+		}
+	}
 }
