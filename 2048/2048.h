@@ -1,5 +1,21 @@
 #pragma once
+#include <iostream>
+#include <algorithm>
+#include <random>
 #include <vector>
+
+
+namespace _2048Game {
+	const int SIDE_LENGTH = 4;
+	const int DEFAULT_SPAWN_PERCENTAGE = 30;
+	const int MOST_COMMON_SPAWN = 2;
+	const int OTHER_SPAWN = 4;
+
+	const char UP_KEY = 'w';
+	const char DOWN_KEY = 's';
+	const char RIGHT_KEY = 'd';
+	const char LEFT_KEY = 'a';
+}
 
 
 class Square {
@@ -11,7 +27,7 @@ public:
 	int getValue() { return value_; };
 
 	void print() const;
-	void setNewValue(int);
+	void setNewValue(int = _2048Game::DEFAULT_SPAWN_PERCENTAGE);
 	void merge(Square&);
 	bool operator!=(Square);
 	bool isPossibleToMerge(Square);
