@@ -219,6 +219,8 @@ void Grid::upShift() {
 			}
 		}
 	}
+
+	spawnNewValues();
 }
 
 void Grid::downShift() {
@@ -240,6 +242,8 @@ void Grid::downShift() {
 			}
 		}
 	}
+
+	spawnNewValues();
 }
 
 void Grid::rightShift() {
@@ -261,6 +265,8 @@ void Grid::rightShift() {
 			}
 		}
 	}
+
+	spawnNewValues();
 }
 
 void Grid::leftShift() {
@@ -282,6 +288,8 @@ void Grid::leftShift() {
 			}
 		}
 	}
+
+	spawnNewValues();
 }
 
 
