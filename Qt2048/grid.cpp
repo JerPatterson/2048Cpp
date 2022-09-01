@@ -77,8 +77,8 @@ void Grid::upShift() {
 	for (int k = 0; k < SIDE_LENGTH; ++k) {
 		for (int i = 0; i < SIDE_LENGTH; ++i) {
 			for (int j = i + 1; j < SIDE_LENGTH; ++j) {
-				Square& top = gridContent_[k + SIDE_LENGTH * i];
-				Square& under = gridContent_[k + SIDE_LENGTH * j];
+				Square& top = gridContent_[k + SIDE_LENGTH * static_cast<unsigned _int64>(i)];
+				Square& under = gridContent_[k + SIDE_LENGTH * static_cast<unsigned _int64>(j)];
 
 				if (top.getValue() == 0) {
 					top.merge(under);
@@ -100,8 +100,8 @@ void Grid::downShift() {
 	for (int k = 0; k < SIDE_LENGTH; ++k) {
 		for (int i = SIDE_LENGTH - 1; i > 0; --i) {
 			for (int j = i - 1; j >= 0; --j) {
-				Square& bottom = gridContent_[SIDE_LENGTH * i + k];
-				Square& above = gridContent_[SIDE_LENGTH * j + k];
+				Square& bottom = gridContent_[k + SIDE_LENGTH * static_cast<unsigned _int64>(i)];
+				Square& above = gridContent_[k + SIDE_LENGTH * static_cast<unsigned _int64>(j)];
 
 				if (bottom.getValue() == 0) {
 					bottom.merge(above);
@@ -123,8 +123,8 @@ void Grid::rightShift() {
 	for (int k = 1; k <= SIDE_LENGTH; ++k) {
 		for (int i = 1; i < SIDE_LENGTH; ++i) {
 			for (int j = i + 1; j <= SIDE_LENGTH; ++j) {
-				Square& right = gridContent_[SIDE_LENGTH * k - i];
-				Square& left = gridContent_[SIDE_LENGTH * k - j];
+				Square& right = gridContent_[SIDE_LENGTH * static_cast<unsigned _int64>(k) - i];
+				Square& left = gridContent_[SIDE_LENGTH * static_cast<unsigned _int64>(k) - j];
 
 				if (right.getValue() == 0) {
 					right.merge(left);
@@ -146,8 +146,8 @@ void Grid::leftShift() {
 	for (int k = 1; k <= SIDE_LENGTH; ++k) {
 		for (int i = SIDE_LENGTH; i > 1; --i) {
 			for (int j = i - 1; j >= 1; --j) {
-				Square& left = gridContent_[SIDE_LENGTH * k - i];
-				Square& right = gridContent_[SIDE_LENGTH * k - j];
+				Square& left = gridContent_[SIDE_LENGTH * static_cast<unsigned _int64>(k) - i];
+				Square& right = gridContent_[SIDE_LENGTH * static_cast<unsigned _int64>(k) - j];
 
 				if (left.getValue() == 0) {
 					left.merge(right);
