@@ -12,7 +12,7 @@ public:
 
 	void print() const;
 	void setNewValue();
-	void merge(Square);
+	void merge(Square&);
 	bool operator!=(Square);
 	bool isPossibleToMerge(Square);
 
