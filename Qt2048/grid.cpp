@@ -50,6 +50,7 @@ void Grid::print() const {
 void Grid::makeMove(char keyPressed) {
 	if (keyPressed == UP_KEY) {
 		upShift();
+		emit 
 	}
 
 	else if (keyPressed == DOWN_KEY) {
@@ -63,6 +64,11 @@ void Grid::makeMove(char keyPressed) {
 	else if (keyPressed == LEFT_KEY) {
 		leftShift();
 	}
+	else {
+		return;
+	}
+
+	emit contentHasChanged(gridContent_);
 }
 
 void Grid::upShift() {
