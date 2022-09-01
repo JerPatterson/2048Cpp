@@ -19,17 +19,7 @@ const char LEFT_KEY = 'a';
 
 int main() {
 	Grid gameGrid = Grid::getInstance();
-
-	gameGrid.print();
-	gameGrid.makeMove('s');
-	gameGrid.print();
-	gameGrid.makeMove('s');
-	gameGrid.print();
-	gameGrid.makeMove('s');
-	gameGrid.print();
-	gameGrid.makeMove('s');
-	gameGrid.print();
-
+	gameGrid.play();
 
 	return 0;
 }
@@ -299,5 +289,17 @@ void Grid::spawnNewValues() {
 		if (square.getValue() == 0) {
 			square.setNewValue(DEFAULT_SPAWN_PERCENTAGE / 2);
 		}
+	}
+}
+
+
+void Grid::play() {
+	print();
+
+	char keyPressed;
+	while (true) {
+		cin >> keyPressed;
+		makeMove(keyPressed);
+		print();
 	}
 }

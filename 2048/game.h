@@ -34,6 +34,7 @@ public:
 		return theInstance;
 	};
 
+	void play();
 	void print() const;
 	void spawnNewValues();
 	void makeMove(char keyPressed);
