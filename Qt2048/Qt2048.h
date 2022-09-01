@@ -1,16 +1,25 @@
 #pragma once
-
+#include "2048.h"
+#include <vector>
+#include <QGridLayout>
 #include <QtWidgets/QMainWindow>
-#include "ui_Qt2048.h"
+#include <QtWidgets/QPushButton>
 
-class Qt2048 : public QMainWindow
-{
+
+class Qt2048 : public QMainWindow {
     Q_OBJECT
 
 public:
-    Qt2048(QWidget *parent = nullptr);
-    ~Qt2048();
+    Qt2048();
+    ~Qt2048() = default;
+
+public slots:
+    void changeContent(const std::vector<Square>&);
+
+    signals:
+        void startGame();
 
 private:
-    Ui::Qt2048Class ui;
+    QGridLayout* interfaceGrid_;
+    std::vector<QAbstractButton*> squares_;
 };

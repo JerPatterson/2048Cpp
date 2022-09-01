@@ -26,6 +26,8 @@ void Grid::generateStartValues() {
 	for (Square& square : gridContent_) {
 		square.setNewValue();
 	}
+
+	emit contentHasChanged(gridContent_);
 }
 
 

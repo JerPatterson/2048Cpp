@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <random>
 #include <vector>
+#include <QObject>
 
 
 namespace _2048Game {
@@ -24,7 +25,7 @@ public:
 	Square(int, int, int = 0);
 
 	int getRank() const;
-	int getValue() { return value_; };
+	int getValue() const { return value_; };
 
 	void print() const;
 	void setNewValue(int = _2048Game::DEFAULT_SPAWN_PERCENTAGE);
@@ -43,11 +44,13 @@ private:
 };
 
 
-class Grid {
+class Grid : public QObject {
+	Q_OBJECT
+
 public:
-	static Grid getInstance() {
+	static Grid* getInstance() {
 		static Grid theInstance = Grid();
-		return theInstance;
+		return &theInstance;
 	};
 
 	void play();
@@ -55,12 +58,17 @@ public:
 	void spawnNewValues();
 	void makeMove(char keyPressed);
 
+public slots:
+	void generateStartValues();
+
+signals:
+	void contentHasChanged(const std::vector<Square>&);
+
 private:
 	Grid();
 
 	void sortValues();
 	bool isSorted() const;
-	void generateStartValues();
 
 	void upShift();
 	void downShift();
