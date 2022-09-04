@@ -55,6 +55,7 @@ public:
 
 	void play();
 	void print() const;
+	bool gameIsLost() const;
 	void spawnNewValues();
 	void makeMove(char keyPressed);
 

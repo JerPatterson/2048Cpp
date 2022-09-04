@@ -182,3 +182,24 @@ void Grid::play() {
 		print();
 	}
 }
+
+
+bool Grid::gameIsLost() const {
+	for (int i = 0; i < SIDE_LENGTH * (SIDE_LENGTH - 1); ++i) {
+			int value = gridContent_[i].getValue();
+			int valueUnder = gridContent_[static_cast<unsigned _int64>(i) + SIDE_LENGTH].getValue();
+			int valueRight = i + 1 % SIDE_LENGTH != 0 ? gridContent_[static_cast<unsigned _int64>(i) + 1].getValue() : -1;
+
+			if (value == 0) {
+				return false;
+			}
+			else if (value == valueUnder) {
+				return false;
+			}
+			else if (valueRight != -1 && value == valueRight) {
+				return false;
+			}
+	}
+
+	return true;
+}
